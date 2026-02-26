@@ -1,12 +1,42 @@
+const naveImagen = new Image();
+naveImagen.src = '/imgs/nave1.png'
 import './style.css'
 const canvas = document.getElementById('sistemaSolar');
 const ctx = canvas.getContext('2d');
-
+const cartelMercurio = document.getElementById('cartel');
 
 canvas.width = innerWidth;
 canvas.height = innerHeight; 
   const centrox = canvas.width / 2;
   const centroy = canvas.height / 2;
+function getKeys() {
+
+  let keys = {};
+
+  window.onkeydown = function (e) {
+
+    keys[e.key] = true;
+
+  };
+
+  window.onkeyup = function (e) {
+
+    keys[e.key] = false;
+
+  };
+
+  return keys;
+
+}
+const teclas = getKeys();
+
+let nave = {
+  x: 100,
+  y: 100,
+  ancho:50,
+  alto:50,
+  velocidad: 5
+}
 
 
 let angulo = 0; 
@@ -14,9 +44,20 @@ let anguloMercurio= 0;
 let anguloTierra = 10;
 let anguloVenus = 0;
 function animar(){
+  if(teclas["w"] || teclas["W"]){
+    nave.y = nave.y - nave.velocidad
+  }
+  if(teclas["a"] || teclas["A"]){
+    nave.x = nave.x - nave.velocidad
+  }
+  if(teclas["s"] || teclas["S"]){
+    nave.y=nave.y + nave.velocidad
+  }
+  if(teclas["d"] || teclas["D"]){
+    nave.x = nave.x + nave.velocidad
+  }
 ctx.fillStyle ='#020b1a';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 draw()           
 anguloMercurio= anguloMercurio + 0.04
  anguloTierra = anguloTierra + 0.04
@@ -24,6 +65,7 @@ anguloMercurio= anguloMercurio + 0.04
   requestAnimationFrame(animar);
   
 }
+
 function dibujarVenus(){
   ctx.save()
   ctx.translate(centrox,centroy)
@@ -66,9 +108,10 @@ function dibujarSol(){
   ctx.restore()
 }
 function draw(){
+  dibujarNave()
    ctx.save()
 dibujarSol();
-dibujarMercurio();
+
 
 dibujarTierra();
 dibujarVenus();
@@ -77,6 +120,9 @@ dibujarVenus();
 
 }
 
-
-
+naveImagen.onload = function(){
 animar();
+}
+function dibujarNave(){
+  ctx.drawImage(naveImagen,nave.x, nave.y, nave.ancho, nave.alto)
+}
