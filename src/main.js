@@ -38,7 +38,7 @@ let nave = {
   velocidad: 5
 }
 let mercurio = {
-  anguloMercurio: 0,
+  angulo: 0,
   x: 0,
   y: 0,
   grandariaMercurio: 8, 
@@ -49,16 +49,16 @@ let mercurio = {
 function haychoque(nave,mercurio){
   const choqueHorizontal= nave.x<mercurio.x + mercurio.grandariaMercurio*2 && nave.x + nave.ancho > mercurio.x;
   const choqueVertical = nave.y < mercurio.y + mercurio.grandariaMercurio*2 && nave.y + nave.alto >mercurio.y;
-  return choqueHorizontal &&choqueVertical
+  return choqueHorizontal && choqueVertical
 }
-let angulo = 0; 
-let anguloMercurio= 0;
+
 let anguloTierra = 10;
 let anguloVenus = 0;
+
 function animar(){
-  mercurio.anguloMercurio=mercurio.anguloMercurio + mercurio.velocidad
-let centroXMercurio = centrox + Math.cos(mercurio.anguloMercurio) * mercurio.distanciaDelSol;
-let centroYMercurio = centroy + Math.sin(mercurio.anguloMercurio) * mercurio.distanciaDelSol;
+  mercurio.angulo=mercurio.angulo + mercurio.velocidad
+let centroXMercurio = centrox + Math.cos(mercurio.angulo) * mercurio.distanciaDelSol;
+let centroYMercurio = centroy + Math.sin(mercurio.angulo) * mercurio.distanciaDelSol;
 mercurio.x = centroXMercurio - mercurio.grandariaMercurio;
 mercurio.y = centroYMercurio - mercurio.grandariaMercurio;
   if(teclas["w"] || teclas["W"]){
@@ -82,7 +82,7 @@ mercurio.y = centroYMercurio - mercurio.grandariaMercurio;
 ctx.fillStyle ='#020b1a';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 draw()           
-anguloMercurio= anguloMercurio + 0.04
+mercurio.angulo= mercurio.angulo + 0.04
  anguloTierra = anguloTierra + 0.04
  anguloVenus = anguloVenus + 0.01
   requestAnimationFrame(animar);
@@ -114,9 +114,9 @@ ctx.translate(centrox,centroy);
 function dibujarMercurio(){
  ctx.save()
   ctx.translate(centrox,centroy);
-  ctx.rotate(mercurio.anguloMercurio)
+  ctx.rotate(mercurio.angulo)
   ctx.beginPath();
-  ctx.arc(mercurio.distanciaDelSol,0,mercurio.grandariaMercurio, 0, Math.PI**2)
+  ctx.arc(mercurio.distanciaDelSol,0,mercurio.grandariaMercurio, 0, 10)
   ctx.fillStyle = '#df2525';  
   ctx.fill()
   ctx.restore();
