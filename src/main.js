@@ -3,7 +3,7 @@ naveImagen.src = '/imgs/nave1.png'
 import './style.css'
 const canvas = document.getElementById('sistemaSolar');
 const ctx = canvas.getContext('2d');
-const cartelMercurio = document.getElementById('cartel');
+const desplegableMercurio = document.getElementById('desplegable-mercurio');
 
 canvas.width = innerWidth;
 canvas.height = innerHeight; 
@@ -37,13 +37,30 @@ let nave = {
   alto:50,
   velocidad: 5
 }
+let mercurio = {
+  anguloMercurio: 0,
+  x: 0,
+  y: 0,
+  grandariaMercurio: 8, 
+  distanciaDelSol: 120,
+  velocidad: 0.04       
+};
 
-
+function haychoque(nave,mercurio){
+  const choqueHorizontal= nave.x<mercurio.x + mercurio.grandariaMercurio*2 && nave.x + nave.ancho > mercurio.x;
+  const choqueVertical = nave.y < mercurio.y + mercurio.grandariaMercurio*2 && nave.y + nave.alto >mercurio.y;
+  return choqueHorizontal &&choqueVertical
+}
 let angulo = 0; 
 let anguloMercurio= 0;
 let anguloTierra = 10;
 let anguloVenus = 0;
 function animar(){
+  mercurio.anguloMercurio=mercurio.anguloMercurio + mercurio.velocidad
+let centroXMercurio = centrox + Math.cos(mercurio.anguloMercurio) * mercurio.distanciaDelSol;
+let centroYMercurio = centroy + Math.sin(mercurio.anguloMercurio) * mercurio.distanciaDelSol;
+mercurio.x = centroXMercurio - mercurio.grandariaMercurio;
+mercurio.y = centroYMercurio - mercurio.grandariaMercurio;
   if(teclas["w"] || teclas["W"]){
     nave.y = nave.y - nave.velocidad
   }
@@ -55,6 +72,12 @@ function animar(){
   }
   if(teclas["d"] || teclas["D"]){
     nave.x = nave.x + nave.velocidad
+  }
+  if(haychoque(nave, mercurio)) {
+    desplegableMercurio.style.display='flex';
+  
+  }else{
+    desplegableMercurio.style.display = 'none';
   }
 ctx.fillStyle ='#020b1a';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -89,11 +112,11 @@ ctx.translate(centrox,centroy);
 }
 
 function dibujarMercurio(){
- ctx.save
+ ctx.save()
   ctx.translate(centrox,centroy);
-  ctx.rotate(anguloMercurio)
+  ctx.rotate(mercurio.anguloMercurio)
   ctx.beginPath();
-  ctx.arc(150,0,8,0,10)
+  ctx.arc(mercurio.distanciaDelSol,0,mercurio.grandariaMercurio, 0, Math.PI**2)
   ctx.fillStyle = '#df2525';  
   ctx.fill()
   ctx.restore();
@@ -111,7 +134,7 @@ function draw(){
   dibujarNave()
    ctx.save()
 dibujarSol();
-
+dibujarMercurio()
 
 dibujarTierra();
 dibujarVenus();
