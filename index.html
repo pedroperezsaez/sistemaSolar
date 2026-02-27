@@ -2,15 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="shortcut icon" href="/imgs/nave1.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema solar</title>
   </head>
   <body>
     <canvas id="sistemaSolar"></canvas>
-  <div id="desplegable-mercurio" >
-    <h1>hola</h1>
-</div>
+  <section class="contenedor-desplegable" id="desplegable-mercurio" >
+    <h1 class="titulo">MERCURIO</h1>
+    <img class="imagen-planeta" src="/public/mercury.jpg" alt="imagen de mercurio">
+    <div class="informacion"><span>temperatura</span>
+    <span>gravedad</span></div>
+    <div class="curiosidades"><div>titulo</div> <div>texto</div></div>
+    <div class="lunas">satelites naturales</div>
+  </section>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -10,14 +10,85 @@ overflow: hidden;}
     height: 100%;
 }
 
-#desplegable-mercurio{
+.contenedor-desplegable {
     position: absolute;
-    top: 20px; 
-    left: 50%; 
-    display: none; 
-    background: blue; 
-    color: white; 
-    padding: 10px 20px; 
-    border: 3px solid #df2525;
-    border-radius: 9px;
+    top: 30px; 
+    left: 30px; 
+    display: grid; 
+   
+    grid-template-columns: 120px 180px; 
+    grid-template-areas:
+        "titulo titulo"
+        "imagen informacion"
+        "curiosidades curiosidades" 
+        "lunas lunas";
+    
+    
+    background: rgba(2, 46, 90, 0.85);
+   
+    
+    color: #e0e0e0; 
+    padding: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-left: 4px solid #df2525; 
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    gap: 15px;
+    
+    
+}
+
+.titulo {
+    grid-area: titulo;
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: #fff;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.644);
+    padding-bottom: 5px;
+}
+
+.imagen-planeta {
+    grid-area: imagen;
+    width: 100%;
+    border-radius: 8px;
+    
+}
+
+.informacion {
+    grid-area: informacion;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    gap: 20px;
+}
+
+.informacion  {
+    color: #df2525; 
+    font-weight: bold;
+  
+    
+}
+
+.curiosidades {
+    grid-area: curiosidades;
+  
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.curiosidades {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.lunas {
+    grid-area: lunas;
+  
+    color: #ffffff;
+    text-align: left;
 }

@@ -1,5 +1,8 @@
 const naveImagen = new Image();
-naveImagen.src = '/imgs/nave1.png'
+naveImagen.onload = function(){
+  animar();
+}
+naveImagen.src = '/nave1.png'
 import './style.css'
 const canvas = document.getElementById('sistemaSolar');
 const ctx = canvas.getContext('2d');
@@ -43,7 +46,7 @@ let mercurio = {
   y: 0,
   grandariaMercurio: 8, 
   distanciaDelSol: 120,
-  velocidad: 0.04       
+  velocidad: 0.00       
 };
 
 function haychoque(nave,mercurio){
@@ -74,7 +77,7 @@ mercurio.y = centroYMercurio - mercurio.grandariaMercurio;
     nave.x = nave.x + nave.velocidad
   }
   if(haychoque(nave, mercurio)) {
-    desplegableMercurio.style.display='flex';
+    desplegableMercurio.style.display='grid';
   
   }else{
     desplegableMercurio.style.display = 'none';
@@ -82,7 +85,7 @@ mercurio.y = centroYMercurio - mercurio.grandariaMercurio;
 ctx.fillStyle ='#020b1a';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 draw()           
-mercurio.angulo= mercurio.angulo + 0.04
+
  anguloTierra = anguloTierra + 0.04
  anguloVenus = anguloVenus + 0.01
   requestAnimationFrame(animar);
@@ -143,9 +146,9 @@ dibujarVenus();
 
 }
 
-naveImagen.onload = function(){
-animar();
-}
 function dibujarNave(){
   ctx.drawImage(naveImagen,nave.x, nave.y, nave.ancho, nave.alto)
+}
+if (!canvas) {
+  throw new Error("Canvas no encontrado");
 }
