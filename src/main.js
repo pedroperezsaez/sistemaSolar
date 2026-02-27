@@ -7,9 +7,11 @@ import './style.css'
 const canvas = document.getElementById('sistemaSolar');
 const ctx = canvas.getContext('2d');
 const desplegableMercurio = document.getElementById('desplegable-mercurio');
+canvas.width = 1920;
+canvas.height = 1080;
 
-canvas.width = innerWidth;
-canvas.height = innerHeight; 
+
+
   const centrox = canvas.width / 2;
   const centroy = canvas.height / 2;
 function getKeys() {
@@ -34,8 +36,8 @@ function getKeys() {
 const teclas = getKeys();
 
 let nave = {
-  x: 100,
-  y: 100,
+  x: 1000,
+  y: 500,
   ancho:50,
   alto:50,
   velocidad: 5
@@ -148,7 +150,4 @@ dibujarVenus();
 
 function dibujarNave(){
   ctx.drawImage(naveImagen,nave.x, nave.y, nave.ancho, nave.alto)
-}
-if (!canvas) {
-  throw new Error("Canvas no encontrado");
 }
