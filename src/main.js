@@ -17,24 +17,39 @@ canvas.height = 1080;
 function getKeys() {
 
   let keys = {};
-
   window.onkeydown = function (e) {
-
     keys[e.key] = true;
-
   };
-
   window.onkeyup = function (e) {
-
     keys[e.key] = false;
-
   };
-
   return keys;
-
 }
-const teclas = getKeys();
 
+const teclas = getKeys();
+let camera = {
+    x: 0,
+    y: 0,
+    width: canvas.width /2 ,
+    height: canvas.height/2 ,
+};
+function updateCamera() {
+  let margenX = 30;
+  let margenY = 60;
+  if (nave.x - camera.x > camera.width) {
+    camera.x = nave.x - camera.width;
+  }
+  if (nave.x - camera.x < camera.width) {
+    camera.x = nave.x - camera.width;
+  }
+    if (nave.y - camera.y > camera.height) {
+    camera.y = nave.y - camera.height;
+  }
+  if (nave.y - camera.y < camera.height) {
+    camera.y = nave.y - camera.height;
+  }
+ 
+}
 let nave = {
   x: 1000,
   y: 500,
@@ -61,6 +76,7 @@ let anguloTierra = 10;
 let anguloVenus = 0;
 
 function animar(){
+  updateCamera()
   mercurio.angulo=mercurio.angulo + mercurio.velocidad
 let centroXMercurio = centrox + Math.cos(mercurio.angulo) * mercurio.distanciaDelSol;
 let centroYMercurio = centroy + Math.sin(mercurio.angulo) * mercurio.distanciaDelSol;
@@ -136,8 +152,10 @@ function dibujarSol(){
   ctx.restore()
 }
 function draw(){
-  dibujarNave()
+ 
    ctx.save()
+    ctx.translate(-camera.x, -camera.y);
+  dibujarNave()
 dibujarSol();
 dibujarMercurio()
 
