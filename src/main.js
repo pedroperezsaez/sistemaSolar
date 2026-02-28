@@ -70,7 +70,9 @@ let mercurio = {
   y: 0,
   grandaria: 8, 
   distanciaDelSol: 120,
-  velocidad: 0.00       
+  velocidad: 0.00,
+  color: '#ff4800', 
+  desplegable:  desplegableMercurio
 };
 let tierra ={
   angulo : 10,
@@ -78,7 +80,9 @@ let tierra ={
   y:0,
   grandaria: 20,
   distanciaDelSol:300,
-  velocidad:0.03
+  velocidad:0.03,
+  color:'#2761F5',
+  desplegable: desplegableTierra
 }
 let venus ={
   angulo: 5,
@@ -86,7 +90,9 @@ let venus ={
   y:0,
   grandaria: 16,
   distanciaDelSol:200,
-  velocidad: 0.02
+  velocidad: 0.02,
+  color:'#ffcb87',
+  desplegable:desplegableVenus
 }
 let marte ={
   angulo: 8,
@@ -94,7 +100,9 @@ let marte ={
   y:0,
   grandaria: 10,
   distanciaDelSol: 400,
-  velocidad:0.00
+  velocidad:0.00,
+  color: 'red',
+  desplegable: desplegableMarte
 }
 
 let jupiter ={
@@ -103,7 +111,9 @@ let jupiter ={
   y:0,
   grandaria:  45,
    distanciaDelSol: 500,
-  velocidad: 0.01
+  velocidad: 0.01,
+  color:'#d1ff87',
+  desplegable: desplegableJupiter
 }
 
 let saturno ={
@@ -112,7 +122,9 @@ let saturno ={
   y:0,
   grandaria: 40,
    distanciaDelSol: 650,
-  velocidad: 0.02
+  velocidad: 0.02,
+  color:'#a79c05',
+  desplegable: desplegableSaturno
 }
 
 let urano ={
@@ -121,7 +133,10 @@ let urano ={
   y:0,
   grandaria: 30,
    distanciaDelSol: 700,
-  velocidad: 0.03
+  velocidad: 0.03,
+  color: 'blue',
+  desplegable: desplegableUrano
+
 }
 let neptuno ={
   angulo: 180,
@@ -129,7 +144,9 @@ let neptuno ={
   y:0,
   grandaria : 30,
    distanciaDelSol: 800,
-  velocidad:0.02
+  velocidad:0.02,
+  color: 'violet',
+  desplegable:desplegableNeptuno
 }
 function pulsarAbajo() {
   teclas["s"] = true;
@@ -221,39 +238,15 @@ movimientoPlaneta(neptuno)
   if(teclas["d"] || teclas["D"]){
     nave.x = nave.x + nave.velocidad
   }
-  if(haychoque(nave, mercurio)) {
-    desplegableMercurio.style.display='grid';
-  
-  }else{
-    desplegableMercurio.style.display = 'none';
-  }
-  if(haychoque(nave,tierra)){
-    desplegableTierra.style.display='grid';
-  } else{
-    desplegableTierra.style.display ='none'
-  }
+desplegarSiHayCHoque(nave,mercurio)
+desplegarSiHayCHoque(nave,venus)
+desplegarSiHayCHoque(nave,tierra)
+desplegarSiHayCHoque(nave,marte)
+desplegarSiHayCHoque(nave,jupiter)
+desplegarSiHayCHoque(nave,saturno)
+desplegarSiHayCHoque(nave,urano)
+desplegarSiHayCHoque(nave,neptuno)
 
-  if(haychoque(nave,venus)){
-    desplegableVenus.style.display = 'grid'
-  }else{
-    desplegableVenus.style.display = 'none'
-  }
-   if (haychoque(nave,marte)){
-    desplegableMarte.style.display='grid'
-   } else{
-    desplegableMarte.style.display = 'none'
-   }
-   if(haychoque(nave,jupiter)){
-    desplegableJupiter.style.display = 'grid'
-   }else{
-    desplegableJupiter.style.display = 'none'
-   }
-
-   if(haychoque(nave, saturno)){
-    desplegableSaturno.style.display = 'grid'
-   } else{
-    desplegableSaturno.style.display = 'none'
-   }
 
 ctx.fillStyle ='#020b1a';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -264,81 +257,24 @@ draw()
   requestAnimationFrame(animar);
   
 }
-
-function dibujarUrano(){
-  ctx.save()
-  ctx.translate(centrox,centroy)
-  ctx.rotate(saturno.angulo)
-  ctx.beginPath()
-  ctx.arc(saturno.distanciaDelSol,0,saturno.grandaria,0,10)
-  ctx.fillStyle='#a79c05'
-  ctx.fill()
-  ctx.restore()
+function desplegarSiHayCHoque(nave,planeta){
+   if(haychoque(nave,planeta)){
+    planeta.desplegable.style.display='grid'
+   }else{
+    planeta.desplegable.style.display='none'
+   }
 }
-
-function dibujarSaturno(){
-  ctx.save()
-  ctx.translate(centrox,centroy)
-  ctx.rotate(saturno.angulo)
-  ctx.beginPath()
-  ctx.arc(saturno.distanciaDelSol,0,saturno.grandaria,0,10)
-  ctx.fillStyle='#a79c05'
-  ctx.fill()
-  ctx.restore()
-}
-function dibujarJupiter(){
-  ctx.save()
-  ctx.translate(centrox,centroy)
-  ctx.rotate(jupiter.angulo)
-  ctx.beginPath()
-  ctx.arc(jupiter.distanciaDelSol,0,jupiter.grandaria,0,10)
-   ctx.fillStyle='#d1ff87';
-  ctx.fill()
-  ctx.restore()
-}
-function dibujarVenus(){
-  ctx.save()
-  ctx.translate(centrox,centroy)
-  ctx.rotate(venus.angulo)
-  ctx.beginPath()
-  ctx.arc(venus.distanciaDelSol,0,venus.grandaria,0,10)
- 
-  ctx.fillStyle='#ffcb87';
-  ctx.fill()
-  ctx.restore()
-}
-function dibujarMarte(){
-  ctx.save()
-  ctx.translate(centrox,centroy)
-  ctx.rotate(marte.angulo)
-  ctx.beginPath();
-  ctx.arc(marte.distanciaDelSol,0, marte.grandaria,0,10)
-  ctx.fillStyle='red'
-  ctx.fill()
-  ctx.restore()
-}
-function dibujarTierra(){
+function dibujarPlaneta(planeta){
 ctx.save()
-ctx.translate(centrox,centroy);
-  ctx.rotate(tierra.angulo)
-  ctx.beginPath();
-  ctx.arc(tierra.distanciaDelSol,0,tierra.grandaria,0,10)
-  ctx.fillStyle='#2761F5'
+  ctx.translate(centrox,centroy)
+  ctx.rotate(planeta.angulo)
+  ctx.beginPath()
+  ctx.arc(planeta.distanciaDelSol,0,planeta.grandaria,0,10)
+  ctx.fillStyle=planeta.color
   ctx.fill()
   ctx.restore()
 }
 
-function dibujarMercurio(){
- ctx.save()
-  ctx.translate(centrox,centroy);
-  ctx.rotate(mercurio.angulo)
-  ctx.beginPath();
-  ctx.arc(mercurio.distanciaDelSol,0,mercurio.grandaria, 0, 10)
-  ctx.fillStyle = '#ff4800';  
-  ctx.fill()
-  ctx.restore();
- 
-}
 function dibujarSol(){
   ctx.save()
     ctx.beginPath();
@@ -353,12 +289,14 @@ function draw(){
     ctx.translate(-camera.x, -camera.y);
   dibujarNave()
 dibujarSol();
-dibujarMercurio()
-dibujarVenus();
-dibujarTierra();
-dibujarMarte()
-dibujarJupiter()
-dibujarSaturno()
+dibujarPlaneta(mercurio)
+dibujarPlaneta(venus)
+dibujarPlaneta(tierra)
+dibujarPlaneta(marte)
+dibujarPlaneta(jupiter)
+dibujarPlaneta(saturno)
+dibujarPlaneta(neptuno)
+dibujarPlaneta(urano)
  ctx.restore()
 
 }
