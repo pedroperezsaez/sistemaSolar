@@ -16,6 +16,34 @@ canvas {
   height: 1080px;
   background-color: #020b1a; 
 }
+.botones {
+  position: absolute; 
+  bottom: 40px;   
+  right: 40px;    
+  display: grid;
+  grid-template-areas: "arriba arriba"
+  "izquierda derecha"
+  "abajo abajo";
+  align-content: center;
+  justify-items: center;
+  gap: 10px;     
+  z-index: 1000; 
+  background-color: #df2525; 
+  padding: 12px;
+  border-radius: 12px;
+}
+#hacia-arriba{
+    grid-area: arriba;
+}
+#hacia-abajo{
+    grid-area: abajo;
+}
+#hacia-izq{
+    grid-area: izquierda;
+}
+#hacia-der{
+    grid-area: derecha;
+}
 
 .contenedor-desplegable {
     position: absolute;

@@ -65,6 +65,47 @@ let mercurio = {
   distanciaDelSol: 120,
   velocidad: 0.00       
 };
+function pulsarAbajo() {
+  teclas["s"] = true;
+}
+function soltarAbajo() {
+  teclas["s"] = false;
+}
+var flechaAbajo = document.getElementById('hacia-abajo')
+flechaAbajo.onpointerdown = pulsarAbajo; 
+flechaAbajo.onpointerup = soltarAbajo; 
+
+function pulsarArriba(){
+teclas["w"] = true;
+}
+function soltarArriba(){
+  teclas["w"] = false
+}
+var flechaArriba = document.getElementById('hacia-arriba')
+flechaArriba.onpointerdown = pulsarArriba
+flechaArriba.onpointerup = soltarArriba
+
+function pulsarIzquierda(){
+  teclas["a"] = true
+}
+function solarIzquierda(){
+  teclas["a"] = false
+}
+
+var flechaIzquierda = document.getElementById('hacia-izq')
+flechaIzquierda.onpointerdown=pulsarIzquierda
+flechaIzquierda.onpointerup=solarIzquierda
+
+function pulsarDerecha(){
+  teclas["d"] = true
+}
+function soltarDerecha(){
+  teclas["d"] = false
+}
+var flechaDerecha = document.getElementById('hacia-der')
+flechaDerecha.onpointerdown=pulsarDerecha
+flechaDerecha.onpointerup=soltarDerecha
+    
 
 function haychoque(nave,mercurio){
   const choqueHorizontal= nave.x<mercurio.x + mercurio.grandariaMercurio*2 && nave.x + nave.ancho > mercurio.x;
