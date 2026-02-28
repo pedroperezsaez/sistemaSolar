@@ -180,56 +180,34 @@ flechaDerecha.onpointerup=soltarDerecha
   return choqueHorizontal && choqueVertical
 }
 
-function movimientoPlaneta(planeta){}
+function movimientoPlaneta(planeta){
+  let centroX = centrox + Math.cos(planeta.angulo) * planeta.distanciaDelSol;
+let centroY = centroy + Math.sin(planeta.angulo) * planeta.distanciaDelSol;
+planeta.x = centroX - planeta.grandaria;
+planeta.y = centroY - planeta.grandaria;
+}
 function animar(){
   updateCamera()
   mercurio.angulo=mercurio.angulo + mercurio.velocidad
-let centroXMercurio = centrox + Math.cos(mercurio.angulo) * mercurio.distanciaDelSol;
-let centroYMercurio = centroy + Math.sin(mercurio.angulo) * mercurio.distanciaDelSol;
-mercurio.x = centroXMercurio - mercurio.grandaria;
-mercurio.y = centroYMercurio - mercurio.grandaria;
-
-tierra.angulo=tierra.angulo+ tierra.velocidad
-let centroXTierra = centrox +Math.cos(tierra.angulo) * tierra.distanciaDelSol;
-let centroYTierra = centroy + Math.sin(tierra.angulo) * tierra.distanciaDelSol;
-tierra.x=centroXTierra- tierra.grandaria
-tierra.y = centroYTierra - tierra.grandaria
-
+movimientoPlaneta(mercurio)
 venus.angulo = venus.angulo + venus.velocidad
-let centroXVenus = centrox+Math.cos(venus.angulo) * venus.distanciaDelSol;
-let centroYVenus = centroy+Math.sin(venus.angulo) * venus.distanciaDelSol;
-venus.x=centroXVenus - venus.grandaria
-venus.y=centroYVenus - venus.grandaria
-
+movimientoPlaneta(venus)
+tierra.angulo=tierra.angulo+ tierra.velocidad
+movimientoPlaneta(tierra)
 marte.angulo = marte.angulo + marte.velocidad
-let centroXMarte = centrox+Math.cos(marte.angulo) * marte.distanciaDelSol;
-let centroYMarte = centroy+Math.sin(marte.angulo) * marte.distanciaDelSol;
-marte.x=centroXMarte-marte.grandaria
-marte.y=centroYMarte-marte.grandaria
+movimientoPlaneta(marte)
 
 jupiter.angulo = jupiter.angulo + jupiter.velocidad
-let centroXJupiter = centrox+Math.cos(jupiter.angulo) * jupiter.distanciaDelSol
-let centroYJupiter = centroy+Math.sin(jupiter.angulo) * jupiter.distanciaDelSol
-jupiter.x=centroXJupiter-jupiter.grandaria
-jupiter.y=centroYJupiter-jupiter.grandaria
+movimientoPlaneta(jupiter)
 
 saturno.angulo = saturno.angulo + saturno.velocidad
-let centroXSaturno = centrox+Math.cos(saturno.angulo) * saturno.distanciaDelSol
-let centroYSaturno = centroy+Math.sin(saturno.angulo) * saturno.distanciaDelSol
-saturno.x=centroXSaturno-saturno.grandaria
-saturno.y=centroYSaturno-saturno.grandaria
+movimientoPlaneta(saturno)
 
 urano.angulo = urano.angulo + urano.velocidad
-let centroXUrano = centrox + Math.cos(urano.angulo)  * urano.distanciaDelSol
-let centroYUrano = centroy + Math.sin(urano.angulo) * urano.distanciaDelSol
-urano.x = centroXUrano - urano.grandaria
-urano.y=centroYUrano - urano.grandaria
+movimientoPlaneta(urano)
 
 neptuno.angulo = neptuno.angulo + neptuno.velocidad
-let centroXNeptuno =centrox + Math.cos(neptuno.angulo) * neptuno.distanciaDelSol
-let centroYNeptuno = centroy + Math.sin(neptuno.angulo) * neptuno.distanciaDelSol
-neptuno.x= centroXNeptuno-neptuno.grandaria
-neptuno.y= centroYNeptuno-neptuno.grandaria
+movimientoPlaneta(neptuno)
 
   if(teclas["w"] || teclas["W"]){
     nave.y = nave.y - nave.velocidad
@@ -286,6 +264,18 @@ draw()
   requestAnimationFrame(animar);
   
 }
+
+function dibujarUrano(){
+  ctx.save()
+  ctx.translate(centrox,centroy)
+  ctx.rotate(saturno.angulo)
+  ctx.beginPath()
+  ctx.arc(saturno.distanciaDelSol,0,saturno.grandaria,0,10)
+  ctx.fillStyle='#a79c05'
+  ctx.fill()
+  ctx.restore()
+}
+
 function dibujarSaturno(){
   ctx.save()
   ctx.translate(centrox,centroy)
