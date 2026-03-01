@@ -68,39 +68,40 @@ let mercurio = {
   angulo: 0,
   x: 0,
   y: 0,
-  grandaria: 8, 
+  grandaria: 6, 
   distanciaDelSol: 120,
-  velocidad: 0.00,
+  velocidad: 0.040,
   color: '#ff4800', 
   desplegable:  desplegableMercurio
 };
-let tierra ={
-  angulo : 10,
-  x: 0,
-  y:0,
-  grandaria: 20,
-  distanciaDelSol:300,
-  velocidad:0.03,
-  color:'#2761F5',
-  desplegable: desplegableTierra
-}
 let venus ={
   angulo: 5,
   x: 0,
   y:0,
-  grandaria: 16,
-  distanciaDelSol:200,
-  velocidad: 0.02,
+  grandaria: 14,
+  distanciaDelSol:180,
+  velocidad: 0.015,
   color:'#ffcb87',
   desplegable:desplegableVenus
 }
+let tierra ={
+  angulo : 10,
+  x: 0,
+  y:0,
+  grandaria: 15,
+  distanciaDelSol:260,
+  velocidad:0.010,
+  color:'#2761F5',
+  desplegable: desplegableTierra
+}
+
 let marte ={
   angulo: 8,
   x: 0,
   y:0,
-  grandaria: 10,
-  distanciaDelSol: 400,
-  velocidad:0.00,
+  grandaria: 8,
+  distanciaDelSol: 340,
+  velocidad:0.008,
   color: 'red',
   desplegable: desplegableMarte
 }
@@ -110,8 +111,8 @@ let jupiter ={
   x:0,
   y:0,
   grandaria:  45,
-   distanciaDelSol: 500,
-  velocidad: 0.01,
+   distanciaDelSol: 520,
+  velocidad: 0.004,
   color:'#d1ff87',
   desplegable: desplegableJupiter
 }
@@ -120,9 +121,9 @@ let saturno ={
   angulo: 100,
   x:0,
   y:0,
-  grandaria: 40,
+  grandaria: 38,
    distanciaDelSol: 650,
-  velocidad: 0.02,
+  velocidad: 0.002,
   color:'#a79c05',
   desplegable: desplegableSaturno
 }
@@ -131,9 +132,10 @@ let urano ={
   angulo: 120,
   x:0,
   y:0,
-  grandaria: 30,
-   distanciaDelSol: 700,
-  velocidad: 0.03,
+  grandaria: 22,
+   distanciaDelSol: 800
+  ,
+  velocidad: 0.001,
   color: 'blue',
   desplegable: desplegableUrano
 
@@ -142,9 +144,9 @@ let neptuno ={
   angulo: 180,
   x:0,
   y:0,
-  grandaria : 30,
+  grandaria : 21,
    distanciaDelSol: 900,
-  velocidad:0.02,
+  velocidad:0.0008,
   color: 'violet',
   desplegable:desplegableNeptuno
 }
@@ -264,6 +266,17 @@ function desplegarSiHayCHoque(nave,planeta){
     planeta.desplegable.style.display='none'
    }
 }
+function dibujarOrbita(planeta) {
+  ctx.save();
+  ctx.translate(centrox, centroy); 
+  ctx.beginPath();
+  
+  ctx.arc(0, 0, planeta.distanciaDelSol, 0, 10)
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)'; 
+  ctx.lineWidth = 1; 
+  ctx.stroke();
+  ctx.restore();
+}
 function dibujarPlaneta(planeta){
 ctx.save()
   ctx.translate(centrox,centroy)
@@ -271,6 +284,7 @@ ctx.save()
   ctx.beginPath()
   ctx.arc(planeta.distanciaDelSol,0,planeta.grandaria,0,10)
   ctx.fillStyle=planeta.color
+ 
   ctx.fill()
   ctx.restore()
 }
@@ -287,7 +301,15 @@ function draw(){
  
    ctx.save()
     ctx.translate(-camera.x, -camera.y);
-  
+dibujarOrbita(mercurio)
+dibujarOrbita(venus)
+dibujarOrbita(tierra)
+dibujarOrbita(tierra)
+dibujarOrbita(marte)
+dibujarOrbita(jupiter)
+dibujarOrbita(saturno)
+dibujarOrbita(neptuno)
+dibujarOrbita(urano)
 dibujarSol();
 dibujarPlaneta(mercurio)
 dibujarPlaneta(venus)

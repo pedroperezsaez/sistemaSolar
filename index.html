@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="/imgs/nave1.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
     <canvas id="sistemaSolar"></canvas>
   <section class="contenedor-desplegable" id="desplegable-mercurio" >
     <h1 class="titulo">MERCURIO</h1>
-    <img class="imagen-planeta" src="/public/mercury.jpg" alt="imagen de mercurio">
+    <img class="imagen-planeta" src="/mercury.jpg" alt="imagen de mercurio">
     <div class="informacion"><span>temperatura</span>
     <span>gravedad</span></div>
     <div class="curiosidades"><div>titulo</div> <div>texto</div></div>
@@ -84,13 +84,26 @@
     <div class="lunas">satelites naturales</div>
   </section>
 
-  <section class="botones">
-  <img src="/keyboard_arrow_up.svg" id="hacia-arriba">
- <img src="/keyboard_arrow_left.svg" id="hacia-izq">
- <img src="/keyboard_arrow_right.svg" id="hacia-der">
-    <img src="/keyboard_arrow_down.svg" id="hacia-abajo">
-</span>
-  </section>
+  
+ <section class="botones">
+  <button id="hacia-arriba" class="boton-flechas">
+    <img src="/keyboard_arrow_up.svg" alt="arriba">
+  </button>
+  
+  <button id="hacia-izq" class="boton-flechas">
+    <img src="/keyboard_arrow_left.svg" alt="izquierda">
+  </button>
+  
+  <button id="hacia-der" class="boton-flechas">
+    <img src="/keyboard_arrow_right.svg" alt="derecha">
+  </button>
+  
+  <button id="hacia-abajo" class="boton-flechas">
+    <img src="/keyboard_arrow_down.svg" alt="abajo">
+  </button>
+</section>
+ 
+ 
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
