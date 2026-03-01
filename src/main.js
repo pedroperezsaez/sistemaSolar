@@ -2,13 +2,21 @@
 
 let imagenesNave = {
   up: new Image(),
+  upLeft: new Image(),
+  upRight: new Image(),
   down: new Image(),
+  downLeft: new Image(),
+  downRight: new Image(),
   left: new Image(),
   right: new Image()
 };
 
 imagenesNave.up.src = '/naveup.webp';
+imagenesNave.upLeft.src = '/naveupleft-01.webp'
+imagenesNave.upRight.src = '/naveupright-01.webp'
 imagenesNave.down.src = '/navedown.webp';
+imagenesNave.downLeft.src = '/navedownleft-01.webp'
+imagenesNave.downRight.src = '/navedownright-01.webp'
 imagenesNave.left.src = '/naveleft.webp';
 imagenesNave.right.src = '/naveright.webp';
 let imagenNaveActual = imagenesNave.up;
@@ -289,20 +297,36 @@ movimientoPlaneta(urano)
 
 neptuno.angulo = neptuno.angulo + neptuno.velocidad
 movimientoPlaneta(neptuno)
-
-  if(teclas["ArrowUp"]){
+if(teclas["ArrowUp"] && teclas["ArrowLeft"]){
+  nave.y = nave.y - nave.velocidad
+  nave.x = nave.x - nave.velocidad
+  imagenNaveActual=imagenesNave.upLeft
+} else if(teclas["ArrowUp"] && teclas["ArrowRight"]){
+  nave.y = nave.y - nave.velocidad
+  nave.x = nave.x + nave.velocidad
+  imagenNaveActual=imagenesNave.upRight
+} else if(teclas["ArrowDown"] && teclas["ArrowLeft"]){
+  nave.y=nave.y + nave.velocidad
+   nave.x = nave.x - nave.velocidad
+   imagenNaveActual=imagenesNave.downLeft
+} else if(teclas["ArrowDown"] && teclas["ArrowRight"]){
+   nave.y=nave.y + nave.velocidad
+    nave.x = nave.x + nave.velocidad
+    imagenNaveActual=imagenesNave.downRight
+}
+  else if(teclas["ArrowUp"] ){
     nave.y = nave.y - nave.velocidad
     imagenNaveActual=imagenesNave.up
   }
-  if(teclas["ArrowLeft"]){
+  else if(teclas["ArrowLeft"] ){
     nave.x = nave.x - nave.velocidad
     imagenNaveActual=imagenesNave.left
   }
-  if(teclas["ArrowDown"]){
+  else if(teclas["ArrowDown"]){
     nave.y=nave.y + nave.velocidad
      imagenNaveActual=imagenesNave.down
   }
-  if(teclas["ArrowRight"]){
+  else if(teclas["ArrowRight"]){
     nave.x = nave.x + nave.velocidad
      imagenNaveActual=imagenesNave.right
   }
