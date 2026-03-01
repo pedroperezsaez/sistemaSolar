@@ -86,8 +86,8 @@ pause.addEventListener('click', function(){
 })
 
 let nave = {
-  x: 1000,
-  y: 500,
+  x: 1880/2,
+  y: 1040/2,
   ancho:50,
   alto:50,
   velocidad: 5
@@ -119,7 +119,7 @@ let tierra ={
   grandaria: 15,
   distanciaDelSol:260,
   velocidad:0.010,
-  color:'#2761F5',
+  color:'#5d89fa',
   desplegable: desplegableTierra
 }
 
@@ -175,7 +175,7 @@ let neptuno ={
   grandaria : 21,
    distanciaDelSol: 900,
   velocidad:0.0008,
-  color: 'violet',
+  color: '#072064',
   desplegable:desplegableNeptuno
 }
 function pararMovimiento(){
@@ -200,8 +200,16 @@ function pararMovimiento(){
   }
 
 }
-
+document.getElementById('hacia-arriba').oncontextmenu = bloquearMenu;
+document.getElementById('hacia-abajo').oncontextmenu = bloquearMenu;
+document.getElementById('hacia-izq').oncontextmenu = bloquearMenu;
+document.getElementById('hacia-der').oncontextmenu = bloquearMenu;
+function bloquearMenu(bloquearMenu) {
+  bloquearMenu.preventDefault();
+  return false;
+}
 function pulsarAbajo() {
+
   teclas["ArrowDown"] = true;
 }
 function soltarAbajo() {
@@ -211,7 +219,7 @@ var flechaAbajo = document.getElementById('hacia-abajo')
 flechaAbajo.onpointerdown = pulsarAbajo; 
 flechaAbajo.onpointerup = soltarAbajo; 
 
-function pulsarArriba(){
+function pulsarArriba(){ 
 teclas["ArrowUp"] = true;
 }
 function soltarArriba(){
@@ -222,6 +230,7 @@ flechaArriba.onpointerdown = pulsarArriba
 flechaArriba.onpointerup = soltarArriba
 
 function pulsarIzquierda(){
+
   teclas["ArrowLeft"] = true
 }
 function solarIzquierda(){
@@ -233,6 +242,7 @@ flechaIzquierda.onpointerdown=pulsarIzquierda
 flechaIzquierda.onpointerup=solarIzquierda
 
 function pulsarDerecha(){
+  
   teclas["ArrowRight"] = true
 }
 function soltarDerecha(){

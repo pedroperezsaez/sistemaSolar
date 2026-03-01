@@ -1,4 +1,8 @@
+:root{
+    --fuente:'JetBrains Mono';
+}
 body, html {
+    font-family: var(--fuente);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -193,6 +197,8 @@ canvas {
 }
 
 .titulo {
+    font-family: var(--fuente);
+    font-weight: 700;
     grid-area: titulo;
     margin: 0;
     font-size: 1.5rem;
@@ -210,6 +216,8 @@ canvas {
 }
 
 .informacion {
+    font-family: var(--fuente);
+    font-weight: 900;
     grid-area: informacion;
     display: flex;
     flex-direction: column;
