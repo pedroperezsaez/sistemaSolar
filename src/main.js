@@ -226,6 +226,7 @@ function soltarAbajo() {
 var flechaAbajo = document.getElementById('hacia-abajo')
 flechaAbajo.onpointerdown = pulsarAbajo; 
 flechaAbajo.onpointerup = soltarAbajo; 
+flechaAbajo.onpointerout = soltarAbajo;
 
 function pulsarArriba(){ 
 teclas["ArrowUp"] = true;
@@ -236,6 +237,7 @@ function soltarArriba(){
 var flechaArriba = document.getElementById('hacia-arriba')
 flechaArriba.onpointerdown = pulsarArriba
 flechaArriba.onpointerup = soltarArriba
+flechaArriba.onpointerout = soltarArriba;
 
 function pulsarIzquierda(){
 
@@ -248,6 +250,7 @@ function solarIzquierda(){
 var flechaIzquierda = document.getElementById('hacia-izq')
 flechaIzquierda.onpointerdown=pulsarIzquierda
 flechaIzquierda.onpointerup=solarIzquierda
+flechaIzquierda.onpointerout = solarIzquierda;
 
 function pulsarDerecha(){
   
@@ -259,6 +262,7 @@ function soltarDerecha(){
 var flechaDerecha = document.getElementById('hacia-der')
 flechaDerecha.onpointerdown=pulsarDerecha
 flechaDerecha.onpointerup=soltarDerecha
+flechaDerecha.onpointerout = soltarDerecha;
     
 
 
