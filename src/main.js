@@ -1,8 +1,21 @@
-const naveImagen = new Image();
-naveImagen.onload = function(){
-  animar();
-}
-naveImagen.src = '/nave1.png'
+
+
+let imagenesNave = {
+  up: new Image(),
+  down: new Image(),
+  left: new Image(),
+  right: new Image()
+};
+
+imagenesNave.up.src = '/naveup.webp';
+imagenesNave.down.src = '/navedown.webp';
+imagenesNave.left.src = '/naveleft.webp';
+imagenesNave.right.src = '/naveright.webp';
+let imagenNaveActual = imagenesNave.up;
+imagenesNave.up.onload = function(){
+    animar();
+  }
+
 import './style.css'
 const canvas = document.getElementById('sistemaSolar');
 const ctx = canvas.getContext('2d');
@@ -269,15 +282,19 @@ movimientoPlaneta(neptuno)
 
   if(teclas["ArrowUp"]){
     nave.y = nave.y - nave.velocidad
+    imagenNaveActual=imagenesNave.up
   }
   if(teclas["ArrowLeft"]){
     nave.x = nave.x - nave.velocidad
+    imagenNaveActual=imagenesNave.left
   }
   if(teclas["ArrowDown"]){
     nave.y=nave.y + nave.velocidad
+     imagenNaveActual=imagenesNave.down
   }
   if(teclas["ArrowRight"]){
     nave.x = nave.x + nave.velocidad
+     imagenNaveActual=imagenesNave.right
   }
 desplegarSiHayCHoque(nave,mercurio)
 desplegarSiHayCHoque(nave,venus)
@@ -364,5 +381,5 @@ dibujarNave()
 }
 
 function dibujarNave(){
-  ctx.drawImage(naveImagen,nave.x, nave.y, nave.ancho, nave.alto)
+  ctx.drawImage(imagenNaveActual,nave.x, nave.y, nave.ancho, nave.alto)
 }

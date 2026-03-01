@@ -16,6 +16,10 @@ canvas {
   height: 1080px;
   background-color: #020b1a; 
 }
+.texto{
+    color: white;
+    margin: 0;
+}
 .contenedor-botones {
     position: absolute; 
     bottom: 40px;  
@@ -50,9 +54,9 @@ canvas {
 .boton-seleccionado{
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    
      background: rgba(134, 129, 129, 0.637);
-    transform: scale(0.95);
+    
     border-radius: 8px;
     cursor: pointer;
     padding: 0;
