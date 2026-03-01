@@ -16,13 +16,13 @@ const desplegableUrano = document.getElementById('desplegable-urano')
 const desplegableNeptuno = document.getElementById('desplegable-neptuno')
 canvas.width = 1920;
 canvas.height = 1080;
-
-
+const play=document.getElementById('play')
+const pause = document.getElementById('pause')
+let playAnimacion=true;
 
   const centrox = canvas.width / 2;
   const centroy = canvas.height / 2;
 function getKeys() {
-
   let keys = {};
   window.onkeydown = function (e) {
     keys[e.key] = true;
@@ -32,8 +32,8 @@ function getKeys() {
   };
   return keys;
 }
-
 const teclas = getKeys();
+
 let camera = {
     x: 0,
     y: 0,
@@ -57,6 +57,21 @@ function updateCamera() {
   }
  
 }
+play.addEventListener('click', function(){
+playAnimacion=true
+  play.classList.add('boton-seleccionado')
+  play.classList.remove('boton-no-seleccionado')
+  pause.classList.add('boton-no-seleccionado')
+  pause.classList.remove('boton-seleccionado')
+})
+pause.addEventListener('click', function(){
+  playAnimacion=false
+  pause.classList.add('boton-seleccionado')
+  pause.classList.remove('boton-no-seleccionado')
+  play.classList.add('boton-no-seleccionado')
+  play.classList.remove('boton-seleccionado')
+})
+
 let nave = {
   x: 1000,
   y: 500,
@@ -150,31 +165,54 @@ let neptuno ={
   color: 'violet',
   desplegable:desplegableNeptuno
 }
+function pararMovimiento(){
+  if(playAnimacion==false){
+  mercurio.velocidad=0
+  venus.velocidad=0
+  tierra.velocidad=0
+  marte.velocidad=0
+  jupiter.velocidad=0
+  saturno.velocidad=0
+  urano.velocidad=0
+  neptuno.velocidad=0
+  }else{
+    mercurio.velocidad=0.040
+    venus.velocidad=0.015
+    tierra.velocidad=0.010
+    marte.velocidad=0.008
+    jupiter.velocidad=0.004
+    saturno.velocidad=0.002
+    urano.velocidad=0.001
+    neptuno.velocidad=0.0008
+  }
+
+}
+
 function pulsarAbajo() {
-  teclas["s"] = true;
+  teclas["ArrowDown"] = true;
 }
 function soltarAbajo() {
-  teclas["s"] = false;
+  teclas["ArrowDown"] = false;
 }
 var flechaAbajo = document.getElementById('hacia-abajo')
 flechaAbajo.onpointerdown = pulsarAbajo; 
 flechaAbajo.onpointerup = soltarAbajo; 
 
 function pulsarArriba(){
-teclas["w"] = true;
+teclas["ArrowUp"] = true;
 }
 function soltarArriba(){
-  teclas["w"] = false
+  teclas["ArrowUp"] = false
 }
 var flechaArriba = document.getElementById('hacia-arriba')
 flechaArriba.onpointerdown = pulsarArriba
 flechaArriba.onpointerup = soltarArriba
 
 function pulsarIzquierda(){
-  teclas["a"] = true
+  teclas["ArrowLeft"] = true
 }
 function solarIzquierda(){
-  teclas["a"] = false
+  teclas["ArrowLeft"] = false
 }
 
 var flechaIzquierda = document.getElementById('hacia-izq')
@@ -182,10 +220,10 @@ flechaIzquierda.onpointerdown=pulsarIzquierda
 flechaIzquierda.onpointerup=solarIzquierda
 
 function pulsarDerecha(){
-  teclas["d"] = true
+  teclas["ArrowRight"] = true
 }
 function soltarDerecha(){
-  teclas["d"] = false
+  teclas["ArrowRight"] = false
 }
 var flechaDerecha = document.getElementById('hacia-der')
 flechaDerecha.onpointerdown=pulsarDerecha
@@ -207,6 +245,7 @@ planeta.y = centroY - planeta.grandaria;
 }
 function animar(){
   updateCamera()
+  pararMovimiento()
   mercurio.angulo=mercurio.angulo + mercurio.velocidad
 movimientoPlaneta(mercurio)
 venus.angulo = venus.angulo + venus.velocidad
@@ -228,16 +267,16 @@ movimientoPlaneta(urano)
 neptuno.angulo = neptuno.angulo + neptuno.velocidad
 movimientoPlaneta(neptuno)
 
-  if(teclas["w"] || teclas["W"]){
+  if(teclas["ArrowUp"]){
     nave.y = nave.y - nave.velocidad
   }
-  if(teclas["a"] || teclas["A"]){
+  if(teclas["ArrowLeft"]){
     nave.x = nave.x - nave.velocidad
   }
-  if(teclas["s"] || teclas["S"]){
+  if(teclas["ArrowDown"]){
     nave.y=nave.y + nave.velocidad
   }
-  if(teclas["d"] || teclas["D"]){
+  if(teclas["ArrowRight"]){
     nave.x = nave.x + nave.velocidad
   }
 desplegarSiHayCHoque(nave,mercurio)

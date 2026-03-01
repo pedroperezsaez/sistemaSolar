@@ -16,24 +16,73 @@ canvas {
   height: 1080px;
   background-color: #020b1a; 
 }
-.botones {
-  position: absolute; 
-  bottom: 40px;   
-  right: 40px;    
-  display: grid;
-  grid-template-areas: "arriba arriba"
-  "izquierda derecha"
-  "abajo abajo";
-  align-content: center;
-  justify-items: center;
-  gap: 15px;     
-  z-index: 1000; 
-  background: rgba(2, 46, 90, 0.7);
-  
-  padding: 12px;
-  border-radius: 12px;
+.contenedor-botones {
+    position: absolute; 
+    bottom: 40px;  
+    right: 40px;    
+    
+    display: grid;
+    grid-template-areas: "playstop"
+    "cruceta";
+    flex-direction: column; 
+    align-items: center;    
+    gap: 20px;              
+    z-index: 1000; 
 }
 
+
+.stop-play {
+    grid-area: playstop;
+  
+    border: none;
+    border-radius: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+   
+ background: rgba(2, 46, 90, 0.7);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+  
+}
+.boton-seleccionado{
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+     background: rgba(134, 129, 129, 0.637);
+    transform: scale(0.95);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.boton-no-seleccionado{
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 3px solid #df2525; 
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0; 
+}
+
+.botones {
+    grid-area: cruceta;
+    display: grid;
+   justify-items: center;
+    grid-template-areas: 
+        "arriba arriba"
+        "izquierda  derecha"
+        "abajo abajo";
+    gap: 15px;     
+    background: rgba(2, 46, 90, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+   
+}
 #hacia-arriba{
     grid-area: arriba;
     width: 50px;
@@ -92,6 +141,7 @@ canvas {
     border-right:none ;
 
 }
+
 #hacia-der{
     grid-area: derecha;
       width: 50px;
@@ -192,3 +242,4 @@ canvas {
     color: #ffffff;
     text-align: left;
 }
+
