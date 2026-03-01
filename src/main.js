@@ -143,7 +143,7 @@ let neptuno ={
   x:0,
   y:0,
   grandaria : 30,
-   distanciaDelSol: 800,
+   distanciaDelSol: 900,
   velocidad:0.02,
   color: 'violet',
   desplegable:desplegableNeptuno
@@ -287,7 +287,7 @@ function draw(){
  
    ctx.save()
     ctx.translate(-camera.x, -camera.y);
-  dibujarNave()
+  
 dibujarSol();
 dibujarPlaneta(mercurio)
 dibujarPlaneta(venus)
@@ -297,6 +297,7 @@ dibujarPlaneta(jupiter)
 dibujarPlaneta(saturno)
 dibujarPlaneta(neptuno)
 dibujarPlaneta(urano)
+dibujarNave()
  ctx.restore()
 
 }
