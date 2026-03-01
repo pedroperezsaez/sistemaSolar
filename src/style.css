@@ -183,11 +183,9 @@ canvas {
     
     
     background: rgba(2, 46, 90, 0.85);
-   
-    
-    color: #e0e0e0; 
+    color: #ffffff; 
     padding: 20px; 
-    border: 1px solid rgba(255, 255, 255, 0.315); 
+    border: 1.5px solid rgba(255, 255, 255, 0.315); 
     border-left: 4px solid #df2525; 
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -203,7 +201,7 @@ canvas {
     margin: 0;
     font-size: 1.5rem;
     letter-spacing: 3px;
-    color: #fff;
+    color: #ffffff;
     border-bottom: 4px solid rgba(255, 255, 255, 0.644);
     padding-bottom: 5px;
 }
@@ -245,7 +243,7 @@ canvas {
 .curiosidades {
     font-weight: bold;
     margin-bottom: 4px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .lunas {
@@ -255,3 +253,92 @@ canvas {
     text-align: left;
 }
 
+@media(max-width:780px){
+    #hacia-arriba{
+    width: 30px;
+    height: 30px;
+ 
+  
+  
+}
+#hacia-arriba img{
+    width: 20px;
+    height: 20px;
+}
+
+
+#hacia-abajo{
+   width: 30px;
+    height: 30px;
+  
+  
+}
+#hacia-abajo img{
+    width: 20px;
+    height: 20px;
+}
+
+
+#hacia-izq{
+    width: 30px;
+    height: 30px;
+}
+
+#hacia-izq img{
+    width: 20px;
+    height: 20px;
+}
+
+#hacia-der{
+    width: 30px;
+    height: 30px;
+}
+#hacia-der img{
+    width: 20px;
+    height: 20px;
+}
+.stop-play {
+    grid-area: playstop;
+  
+    border: none;
+    border-radius: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+   
+ background: rgba(2, 46, 90, 0.7);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+  
+}
+.boton-seleccionado{
+    width: 20px;
+    height: 20px;
+    
+     background: rgba(134, 129, 129, 0.637);
+    
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+.boton-seleccionado img{
+    width: 15px;
+    height: 15px;
+    
+    
+   
+}
+.boton-no-seleccionado{
+    width: 20px;
+    height: 20px;
+    
+}
+.boton-no-seleccionado img{
+    width: 15px;
+    height: 15px;
+    
+}
+
+}
