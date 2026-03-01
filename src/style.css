@@ -314,8 +314,8 @@ canvas {
   
 }
 .boton-seleccionado{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     
      background: rgba(134, 129, 129, 0.637);
     
@@ -324,20 +324,20 @@ canvas {
     padding: 0;
 }
 .boton-seleccionado img{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     
     
    
 }
 .boton-no-seleccionado{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     
 }
 .boton-no-seleccionado img{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     
 }
 
