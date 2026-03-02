@@ -1,15 +1,13 @@
-:root{
-    --fuente:'JetBrains Mono';
+:root {
+  --fuente: 'JetBrains Mono';
 }
-body, html {
-   
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
- 
-  
 
   display: flex;
   justify-content: center;
@@ -18,320 +16,285 @@ body, html {
 canvas {
   width: 1920px;
   height: 1080px;
-  background-color: #020b1a; 
-}
-.texto{
-    color: white;
-    margin: 0;
-    font-family: var(--fuente);
-}
-.contenedor-botones {
-    position: absolute; 
-    bottom: 40px;  
-    right: 40px;    
-    
-    display: grid;
-    grid-template-areas: "playstop"
-    "cruceta";
-    flex-direction: column; 
-    align-items: center;    
-    gap: 20px;              
-    z-index: 1000; 
+  background-color: #020b1a;
 }
 
+.contenedor-botones {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+
+  display: grid;
+  grid-template-areas:
+    'playstop'
+    'cruceta';
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+}
 
 .stop-play {
-    grid-area: playstop;
-  
-    border: none;
-    border-radius: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-   
- background: rgba(2, 46, 90, 0.7);
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-  
+  grid-area: playstop;
+
+  border: none;
+  border-radius: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+
+  background: rgba(2, 46, 90, 0.7);
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
-.boton-seleccionado{
-    width: 30px;
-    height: 30px;
-    
-     background: rgba(134, 129, 129, 0.637);
-    
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
+.stop-play img {
+  width: 20px;
+  height: 20px;
+}
+.boton-seleccionado {
+  width: 30px;
+  height: 30px;
+  background: rgba(104, 103, 103, 0.637);
+  border-radius: 8px;
+  border-bottom: 3px solid green;
+  cursor: pointer;
+  padding: 0;
 }
 
-.boton-no-seleccionado{
-    width: 30px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 3px solid #df2525; 
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0; 
+.boton-no-seleccionado {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid #df2525;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
 }
 
 .botones {
-    grid-area: cruceta;
-    display: grid;
-   justify-items: center;
-    grid-template-areas: 
-        "arriba arriba"
-        "izquierda  derecha"
-        "abajo abajo";
-    gap: 15px;     
-    background: rgba(2, 46, 90, 0.7);
-    padding: 20px;
-    border-radius: 12px;
-   
+  grid-area: cruceta;
+  display: grid;
+  justify-items: center;
+  grid-template-areas:
+    'arriba arriba'
+    'izquierda  derecha'
+    'abajo abajo';
+  gap: 15px;
+  background: rgba(2, 46, 90, 0.7);
+  padding: 20px;
+  border-radius: 12px;
 }
-#hacia-arriba{
-    grid-area: arriba;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 3px solid #df2525; 
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
-  
-  
+.boton-flechas img {
+  width: 30px;
+  height: 30px;
 }
-#hacia-arriba:hover{
-   background: rgba(134, 129, 129, 0.637);
-    transform: scale(0.95);
-    border-bottom:none ;
+.boton-flechas {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
 }
-
-
-
-#hacia-abajo{
-    grid-area: abajo;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-top: 3px solid #df2525; 
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
-  
-  
+#hacia-arriba {
+  grid-area: arriba;
+  border-bottom: 3px solid #df2525;
 }
-#hacia-abajo:hover{
-   background: rgba(134, 129, 129, 0.637);
-    transform: scale(0.95);
-    border-top:none ;
-
-}
-#hacia-izq{
-    grid-area: izquierda;
-     width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 3px solid #df2525; 
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
-}
-#hacia-izq:hover{
-   background: rgba(134, 129, 129, 0.637);
-    transform: scale(0.95);
-    border-right:none ;
-
+#hacia-arriba:hover {
+  background: rgba(134, 129, 129, 0.637);
+  transform: scale(0.95);
+  border-bottom: none;
 }
 
-#hacia-der{
-    grid-area: derecha;
-      width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-left: 3px solid #df2525; 
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
+#hacia-abajo {
+  grid-area: abajo;
+  border-top: 3px solid #df2525;
 }
-#hacia-der:hover{
-   background: rgba(134, 129, 129, 0.637);
-    transform: scale(0.95);
-    border-left:none ;
 
+#hacia-abajo:hover {
+  background: rgba(134, 129, 129, 0.637);
+  transform: scale(0.95);
+  border-top: none;
+}
+#hacia-izq {
+  grid-area: izquierda;
+  border-right: 3px solid #df2525;
+}
+#hacia-izq:hover {
+  background: rgba(134, 129, 129, 0.637);
+  transform: scale(0.95);
+  border-right: none;
+}
+
+#hacia-der {
+  grid-area: derecha;
+  border-left: 3px solid #df2525;
+}
+#hacia-der:hover {
+  background: rgba(134, 129, 129, 0.637);
+  transform: scale(0.95);
+  border-left: none;
 }
 
 .contenedor-desplegable {
-    position: absolute;
-    top: 30px; 
-    left: 30px; 
-    display: grid; 
-   
-    grid-template-columns: 120px 180px; 
-    grid-template-areas:
-        "titulo titulo"
-        "imagen informacion"
-        "curiosidades curiosidades" 
-        "lunas lunas";
-    
-    
-    background: rgba(2, 46, 90, 0.85);
-    color: #ffffff; 
-    padding: 20px; 
-    border: 1.5px solid rgba(255, 255, 255, 0.315); 
-    border-left: 4px solid #df2525; 
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    gap: 15px;
-    
-    
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: grid;
+
+  grid-template-columns: 120px 180px;
+  grid-template-areas:
+    'titulo titulo'
+    'imagen informacion'
+    'curiosidades curiosidades'
+    'lunas lunas';
+
+  background: rgba(2, 46, 90, 0.85);
+  color: #ffffff;
+  padding: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.315);
+  border-left: 4px solid #df2525;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  gap: 15px;
+}
+.dato {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--fuente);
 }
 
+.margen-texto,
+.texto {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuente);
+}
+.texto {
+  color: white;
+  margin: 0;
+  font-family: var(--fuente);
+}
 .titulo {
-    font-family: var(--fuente);
-    font-weight: 700;
-    grid-area: titulo;
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    color: #ffffff;
-    border-bottom: 4px solid rgba(255, 255, 255, 0.644);
-    padding-bottom: 5px;
+  font-family: var(--fuente);
+  font-weight: 700;
+  grid-area: titulo;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.644);
+  padding-bottom: 5px;
 }
 
 .imagen-planeta {
-    grid-area: imagen;
-    width: 100%;
-    border-radius: 8px;
-    
+  grid-area: imagen;
+  width: 100%;
+  border-radius: 8px;
 }
 
 .informacion {
-    font-family: var(--fuente);
-    font-weight: 900;
-    grid-area: informacion;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   
-    gap: 20px;
+  font-family: var(--fuente);
+  font-weight: 900;
+  grid-area: informacion;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 10px;
 }
 
-.informacion  {
-    color: #df2525; 
-    font-weight: bold;
-   font-family: var(--fuente);
-    
+.informacion {
+  color: #df2525;
+  font-weight: bold;
+  font-family: var(--fuente);
 }
 
 .curiosidades {
-    grid-area: curiosidades;
-    margin-bottom: 4px;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 6px;
-    font-family: var(--fuente);
+  grid-area: curiosidades;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #ffffff;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 6px;
+  font-family: var(--fuente);
 }
 
-
-
-
-@media(max-width:780px){
-    #hacia-arriba{
+@media (max-width: 780px) {
+  #hacia-arriba {
     width: 30px;
     height: 30px;
- 
-  
-  
-}
-#hacia-arriba img{
+  }
+  #hacia-arriba img {
     width: 20px;
     height: 20px;
-}
+  }
 
-
-#hacia-abajo{
-   width: 30px;
-    height: 30px;
-  
-  
-}
-#hacia-abajo img{
-    width: 20px;
-    height: 20px;
-}
-
-
-#hacia-izq{
+  #hacia-abajo {
     width: 30px;
     height: 30px;
-}
-
-#hacia-izq img{
+  }
+  #hacia-abajo img {
     width: 20px;
     height: 20px;
-}
+  }
 
-#hacia-der{
+  #hacia-izq {
     width: 30px;
     height: 30px;
-}
-#hacia-der img{
+  }
+
+  #hacia-izq img {
     width: 20px;
     height: 20px;
-}
-.stop-play {
+  }
+
+  #hacia-der {
+    width: 30px;
+    height: 30px;
+  }
+  #hacia-der img {
+    width: 20px;
+    height: 20px;
+  }
+  .stop-play {
     grid-area: playstop;
-  
+
     border: none;
     border-radius: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
     justify-content: space-around;
-   
- background: rgba(2, 46, 90, 0.7);
+
+    background: rgba(2, 46, 90, 0.7);
     cursor: pointer;
     color: white;
     font-weight: bold;
-  
-}
-.boton-seleccionado{
-    width: 25px;
-    height: 25px;
-    
-     background: rgba(134, 129, 129, 0.637);
-    
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 0;
-}
-.boton-seleccionado img{
+  }
+
+  .boton-seleccionado img {
     width: 20px;
     height: 20px;
-    
-    
-   
-}
-.boton-no-seleccionado{
+  }
+  .boton-seleccionado {
     width: 25px;
     height: 25px;
-    
-}
-.boton-no-seleccionado img{
+  }
+  .boton-no-seleccionado {
+    width: 25px;
+    height: 25px;
+  }
+  .boton-no-seleccionado img {
     width: 20px;
     height: 20px;
-    
-}
-
-
+  }
 }

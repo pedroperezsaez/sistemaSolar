@@ -1,118 +1,278 @@
 <!doctype html>
 <html lang="es">
   <head>
-  
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="/imgs/nave1.png" type="image/x-icon">
-   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/imgs/nave1.png"
+      type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <title>Sistema solar</title>
   </head>
   <body>
-    <canvas id="sistemaSolar"></canvas>
-  <section class="contenedor-desplegable" id="desplegable-mercurio" >
-    <h1 class="titulo">MERCURIO</h1>
-    <img class="imagen-planeta" src="/mercury.webp" alt="imagen de mercurio">
-    <div class="informacion"><span>TEMPERATURA: <p class="texto"> Entre -180°C y 430°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 3.7 m/s²</p></span></div>
-    <div class="curiosidades">Es el planeta más cercano al Sol y el más pequeño del sistema solar. Carece de atmósfera, lo que provoca cambios térmicos extremos entre el día y la noche.</div>
-    
-  </section>
+    <main>
+      <canvas id="sistemaSolar"></canvas>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-mercurio">
+        <h1 class="titulo">MERCURIO</h1>
+        <img
+          class="imagen-planeta"
+          src="/mercury.webp"
+          alt="imagen de mercurio" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="margen-texto">TEMPERATURA:</div>
+            <div class="texto">Entre -180°C y 430°C</div>
+          </div>
 
-  
+          <div class="dato">
+            <div class="margen-texto">GRAVEDAD:</div>
+            <div class="texto">3.7 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Es el planeta más cercano al Sol y el más pequeño del sistema solar.
+          Carece de atmósfera, lo que provoca cambios térmicos extremos entre el
+          día y la noche.
+        </div>
+      </section>
 
-   <section class="contenedor-desplegable" id="desplegable-venus" >
-    <h1 class="titulo">VENUS</h1>
-    <img class="imagen-planeta" src="/vvvv.webp" alt="imagen de venus">
-       <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de 465°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 8.87 m/s²</p></span></div>
-    <div class="curiosidades">Tiene una atmósfera densa de dióxido de carbono que genera un efecto invernadero descontrolado. Gira en sentido contrario a la mayoría de los planetas.</div>
-    
-  </section>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-venus">
+        <h1 class="titulo">VENUS</h1>
+        <img
+          class="imagen-planeta"
+          src="/vvvv.webp"
+          alt="imagen de venus" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de 465°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">8.87 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Tiene una atmósfera densa de dióxido de carbono que genera un efecto
+          invernadero descontrolado. Gira en sentido contrario a la mayoría de
+          los planetas.
+        </div>
+      </section>
 
-   <section class="contenedor-desplegable" id="desplegable-tierra" >
-    <h1 class="titulo">TIERRA</h1>
-    <img class="imagen-planeta" src="/ttt.webp" alt="imagen de tierra">
-    <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de 15°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 9.81 m/s²</p></span></div>
-    <div class="curiosidades">Es el único mundo conocido con agua líquida en su superficie y vida. Su atmósfera rica en nitrógeno y oxígeno nos protege de la radiación solar.</div>
-    
-  </section>
-    <section class="contenedor-desplegable" id="desplegable-marte" >
-    <h1 class="titulo">MARTE</h1>
-    <img class="imagen-planeta" src="/marte.webp" alt="imagen de marte">
-    <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de -62°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 3.71 m/s²</p></span></div>
-    <div class="curiosidades">Conocido como el Planeta Rojo por el óxido de hierro en su suelo. Alberga el Monte Olimpo, el volcán más grande de todo el sistema solar.</div>
-    
-  </section>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-tierra">
+        <h1 class="titulo">TIERRA</h1>
+        <img
+          class="imagen-planeta"
+          src="/ttt.webp"
+          alt="imagen de tierra" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de 15°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">9.81 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Es el único mundo conocido con agua líquida en su superficie y vida.
+          Su atmósfera rica en nitrógeno y oxígeno nos protege de la radiación
+          solar.
+        </div>
+      </section>
 
-    <section class="contenedor-desplegable" id="desplegable-jupiter" >
-    <h1 class="titulo">JUPITER</h1>
-    <img class="imagen-planeta" src="/jupiter.webp" alt="imagen de jupiter">
-     <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de -110°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 10.44 m/s²</p></span></div>
-    <div class="curiosidades">Famoso por su complejo sistema de anillos compuestos de hielo y roca. Es el planeta menos denso; si hubiera un océano gigante, Saturno flotaría en él.</div>
-    
-  </section>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-marte">
+        <h1 class="titulo">MARTE</h1>
+        <img
+          class="imagen-planeta"
+          src="/marte.webp"
+          alt="imagen de marte" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de -62°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">3.71 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Conocido como el Planeta Rojo por el óxido de hierro en su suelo.
+          Alberga el Monte Olimpo, el volcán más grande de todo el sistema
+          solar.
+        </div>
+      </section>
 
-    <section class="contenedor-desplegable" id="desplegable-saturno" >
-    <h1 class="titulo">SATURNO</h1>
-    <img class="imagen-planeta" src="/saturno.webp" alt="imagen de saturno">
-    <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de -140°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 10.44 m/s²</p></span></div>
-    <div class="curiosidades">Famoso por su complejo sistema de anillos compuestos de hielo y roca. Es el planeta menos denso; si hubiera un océano gigante, Saturno flotaría en él.</div>
-    
-  </section>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-jupiter">
+        <h1 class="titulo">JUPITER</h1>
+        <img
+          class="imagen-planeta"
+          src="/jupiter.webp"
+          alt="imagen de jupiter" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de -110°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">10.44 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Famoso por su complejo sistema de anillos compuestos de hielo y roca.
+          Es el planeta menos denso; si hubiera un océano gigante, Saturno
+          flotaría en él.
+        </div>
+      </section>
 
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-saturno">
+        <h1 class="titulo">SATURNO</h1>
+        <img
+          class="imagen-planeta"
+          src="/saturno.webp"
+          alt="imagen de saturno" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de -140°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">10.44 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Famoso por su complejo sistema de anillos compuestos de hielo y roca.
+          Es el planeta menos denso; si hubiera un océano gigante, Saturno
+          flotaría en él.
+        </div>
+      </section>
 
-    <section class="contenedor-desplegable" id="desplegable-urano" >
-    <h1 class="titulo">URANO</h1>
-    <img class="imagen-planeta" src="/urano.webp" alt="imagen de urano">
-   <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de -195°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 8.69 m/s²</p></span></div>
-    <div class="curiosidades">Es un gigante de hielo que tiene la particularidad de rotar sobre su costado. Su atmósfera contiene metano, lo que le da su característico color azul pálido.</div>
-    
-  </section>
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-urano">
+        <h1 class="titulo">URANO</h1>
+        <img
+          class="imagen-planeta"
+          src="/urano.webp"
+          alt="imagen de urano" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de -195°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">8.69 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Es un gigante de hielo que tiene la particularidad de rotar sobre su
+          costado. Su atmósfera contiene metano, lo que le da su característico
+          color azul pálido.
+        </div>
+      </section>
 
+      <section
+        class="contenedor-desplegable"
+        id="desplegable-neptuno">
+        <h1 class="titulo">NEPTUNO</h1>
+        <img
+          class="imagen-planeta"
+          src="/neptuno.webp"
+          alt="imagen de neptuno" />
+        <div class="informacion">
+          <div class="dato">
+            <div class="label">TEMPERATURA:</div>
+            <div class="texto">Media de -201°C</div>
+          </div>
+          <div class="dato">
+            <div class="label">GRAVEDAD:</div>
+            <div class="texto">11.15 m/s²</div>
+          </div>
+        </div>
+        <div class="curiosidades">
+          Es el planeta más alejado y el que tiene los vientos más fuertes del
+          sistema solar. Su color azul intenso se debe a la composición de gases
+          en su atmósfera fría.
+        </div>
+      </section>
 
-    <section class="contenedor-desplegable" id="desplegable-neptuno" >
-    <h1 class="titulo">NEPTUNO</h1>
-    <img class="imagen-planeta" src="/neptuno.webp" alt="imagen de neptuno">
-    <div class="informacion"><span>TEMPERATURA: <p class="texto"> Media de -201°C</p></span>
-    <span>GRAVEDAD:<p class="texto"> 11.15 m/s²</p></span></div>
-    <div class="curiosidades">Es el planeta más alejado y el que tiene los vientos más fuertes del sistema solar. Su color azul intenso se debe a la composición de gases en su atmósfera fría.</div>
-    
-  </section>
+      <div class="contenedor-botones">
+        <div class="botones">
+          <button
+            id="hacia-arriba"
+            class="boton-flechas">
+            <img
+              src="/keyboard_arrow_up.svg"
+              alt="arriba" />
+          </button>
 
-  <section class="contenedor-botones">
- <section class="botones">
-  <button id="hacia-arriba" class="boton-flechas">
-    <img src="/keyboard_arrow_up.svg" alt="arriba">
-  </button>
-  
-  <button id="hacia-izq" class="boton-flechas">
-    <img src="/keyboard_arrow_left.svg" alt="izquierda">
-  </button>
-  
-  <button id="hacia-der" class="boton-flechas">
-    <img src="/keyboard_arrow_right.svg" alt="derecha">
-  </button>
-  
-  <button id="hacia-abajo" class="boton-flechas">
-    <img src="/keyboard_arrow_down.svg" alt="abajo">
-  </button>
-</section>
- 
-<section class="stop-play">
-   <button class="boton-seleccionado" id="play">
-    <img src="/play_arrow.svg" alt="boton play">
-  </button>
-  <button class="boton-no-seleccionado" id="pause">
-    <img src="/pause_24dp.svg" alt="boton stop">
-  </button>
-</section>
- </section>
-    <script type="module" src="/src/main.js"></script>
+          <button
+            id="hacia-izq"
+            class="boton-flechas">
+            <img
+              src="/keyboard_arrow_left.svg"
+              alt="izquierda" />
+          </button>
+
+          <button
+            id="hacia-der"
+            class="boton-flechas">
+            <img
+              src="/keyboard_arrow_right.svg"
+              alt="derecha" />
+          </button>
+
+          <button
+            id="hacia-abajo"
+            class="boton-flechas">
+            <img
+              src="/keyboard_arrow_down.svg"
+              alt="abajo" />
+          </button>
+        </div>
+
+        <div class="stop-play">
+          <button
+            class="boton-seleccionado"
+            id="play">
+            <img
+              src="/play_arrow.svg"
+              alt="boton play" />
+          </button>
+          <button
+            class="boton-no-seleccionado"
+            id="pause">
+            <img
+              src="/pause_24dp.svg"
+              alt="boton stop" />
+          </button>
+        </div>
+      </div>
+    </main>
+    <script
+      type="module"
+      src="/src/main.js"></script>
   </body>
 </html>
